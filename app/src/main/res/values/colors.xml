@@ -13,6 +13,7 @@
     <color name="colorGreen_200">#A0D4A5</color>
     <color name="colorGreen_100">#C5E5C8</color>
     <color name="colorGreen_50">#E7F5E9</color>
+    <color name="colorGreen_600_Opa10">#1a369C44</color>
 
     <color name="colorBrown_900">#5D2A1C</color>
     <color name="colorBrown_800">#6D3825</color>
@@ -24,5 +25,7 @@
     <color name="colorBrown_200">#DEAB93</color>
     <color name="colorBrown_100">#F7CAB3</color>
     <color name="colorBrown_50">#FFE7CE</color>
+    <color name="colorBrown_900_Opa25">#405D2A1C</color>
+    <color name="colorBrown_900_Opa50">#805D2A1C</color>
 
 </resources>
