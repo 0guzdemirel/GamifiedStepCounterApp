@@ -12,5 +12,9 @@
     <string name="postContent">Post Content</string>
     <string name="postImage">Post Image</string>
     <string name="shareAllCaps">SHARE</string>
+    <string name="ranking">Ranking</string>
+    <string name="today">Today</string>
+    <string name="streak">STREAK</string>
+    <string name="avgSteps">AVG STEPS</string>
 
 </resources>
