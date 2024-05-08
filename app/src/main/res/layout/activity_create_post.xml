@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorGreen_50">
+
+    <RelativeLayout
+        android:id="@+id/headerRL"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/colorGreen_600_Opa10">
+
+        <RelativeLayout
+            android:id="@+id/backRL"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="10dp">
+
+            <ImageView
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerInParent="true"
+                android:src="@drawable/back_icon"
+                app:tint="@color/colorGreen_600" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/newPost"
+            android:textColor="@color/colorGreen_600"
+            android:textSize="18sp" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorGreen_600" />
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/headerRL"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="10dp"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/postContent"
+                android:textColor="@color/colorBrown_900"
+                android:textSize="12sp" />
+
+            <EditText
+                android:id="@+id/postContentET"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/rounded_shape_color_brown_900_opa25_bordered_color_brown_900_rad_5"
+                android:fontFamily="@font/quicksand_medium"
+                android:gravity="start"
+                android:hint="@string/postContent"
+                android:padding="10dp"
+                android:textColor="@color/colorBrown_900"
+                android:textColorHint="@color/colorBrown_900_Opa50"
+                android:textSize="14sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="@string/postImage"
+                android:textColor="@color/colorBrown_900"
+                android:textSize="12sp" />
+
+            <RelativeLayout
+                android:id="@+id/addPhotoRL"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:layout_marginTop="3dp"
+                android:background="@drawable/rounded_shape_color_brown_900_opa25_bordered_color_brown_900_rad_5">
+
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/add_icon"
+                    app:tint="@color/colorBrown_900" />
+
+                <com.makeramen.roundedimageview.RoundedImageView
+                    android:id="@+id/postPhotoIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="2dp"
+                    android:scaleType="centerCrop"
+                    app:riv_corner_radius="5dp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/shareRL"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        android:background="@drawable/rounded_shape_color_brown_900_rad_5">
+
+        <TextView
+            android:id="@+id/shareBtnText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:fontFamily="@font/quicksand_bold"
+            android:text="@string/shareAllCaps"
+            android:textColor="@color/white"
+            android:textSize="16sp" />
+
+        <ProgressBar
+            android:id="@+id/shareBtnPB"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:indeterminateTint="@color/white"
+            android:visibility="gone" />
+
+    </RelativeLayout>
+
+</RelativeLayout>

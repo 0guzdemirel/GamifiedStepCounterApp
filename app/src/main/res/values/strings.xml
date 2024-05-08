@@ -6,5 +6,11 @@
     <string name="password">Password</string>
     <string name="loginAllCaps">LOGIN</string>
     <string name="registerAllCaps">REGISTER</string>
+    <string name="social">Social</string>
+    <string name="comments">Comments</string>
+    <string name="newPost">New Post</string>
+    <string name="postContent">Post Content</string>
+    <string name="postImage">Post Image</string>
+    <string name="shareAllCaps">SHARE</string>
 
 </resources>
