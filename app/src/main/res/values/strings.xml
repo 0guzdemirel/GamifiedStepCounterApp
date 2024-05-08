@@ -16,5 +16,6 @@
     <string name="today">Today</string>
     <string name="streak">STREAK</string>
     <string name="avgSteps">AVG STEPS</string>
+    <string name="contents">Contents</string>
 
 </resources>

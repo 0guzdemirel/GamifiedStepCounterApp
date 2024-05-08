@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/top_rounded_shape_color_green_50_rad_10"
+    android:orientation="vertical">
+
+    <View
+        android:layout_width="40dp"
+        android:layout_height="5dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/rounded_shape_color_green_600_rad_5" />
+
+    <com.makeramen.roundedimageview.RoundedImageView
+        android:id="@+id/articlePhotoIV"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_margin="15dp"
+        android:scaleType="centerCrop"
+        android:src="@drawable/random_post_img"
+        app:riv_border_color="@color/colorBrown_900"
+        app:riv_border_width="2dp"
+        app:riv_corner_radius="5dp" />
+
+    <TextView
+        android:id="@+id/podcastTitleTV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:fontFamily="@font/quicksand_bold"
+        android:gravity="center"
+        android:text="Lorem Article"
+        android:textColor="@color/colorBrown_900"
+        android:textSize="20sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginTop="15dp"
+        android:orientation="vertical">
+
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/progressBar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="7dp"
+            android:max="10"
+            android:progress="3"
+            app:indicatorColor="@color/colorBrown_900"
+            app:trackColor="@color/colorBrown_900_Opa50"
+            app:trackCornerRadius="3dp"
+            app:trackThickness="8dp" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/progressTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/quicksand_semibold"
+                android:text="21:17"
+                android:textColor="@color/colorBrown_900"
+                android:textSize="12sp" />
+
+            <TextView
+                android:id="@+id/durationTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentEnd="true"
+                android:fontFamily="@font/quicksand_semibold"
+                android:text="21:17"
+                android:textColor="@color/colorBrown_900"
+                android:textSize="12sp" />
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:id="@+id/stopRL"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:layout_marginHorizontal="15dp"
+        android:layout_marginVertical="20dp"
+        android:background="@drawable/rounded_shape_color_brown_900_rad_5">
+
+        <ImageView
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/stop_icon" />
+
+    </RelativeLayout>
+
+</LinearLayout>
