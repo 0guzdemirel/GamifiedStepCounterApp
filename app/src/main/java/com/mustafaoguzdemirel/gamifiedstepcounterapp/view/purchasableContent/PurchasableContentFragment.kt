@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.FragmentMainBinding
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.FragmentContentBinding
 
 class PurchasableContentFragment : Fragment() {
-    private var binding: FragmentMainBinding? = null
+    private var binding: FragmentContentBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentMainBinding.inflate(inflater, container, false)
+        binding = FragmentContentBinding.inflate(inflater, container, false)
         return binding?.root
     }
 

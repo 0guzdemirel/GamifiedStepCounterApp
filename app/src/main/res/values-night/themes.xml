@@ -1,7 +1,16 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
     <style name="Base.Theme.GamifiedStepCounterApp" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your dark theme here. -->
-        <!-- <item name="colorPrimary">@color/my_dark_primary</item> -->
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/colorGreen_600</item>
+        <item name="colorPrimaryVariant">@color/colorGreen_600</item>
+        <item name="colorOnPrimary">@color/colorBrown_900</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/colorBrown_900</item>
+        <item name="colorSecondaryVariant">@color/colorBrown_400</item>
+        <item name="colorOnSecondary">@color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Customize your theme here. -->
     </style>
 </resources>

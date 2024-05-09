@@ -13,6 +13,7 @@
         android:background="@color/colorGreen_600_Opa10">
 
         <RelativeLayout
+            android:id="@+id/infoRL"
             android:layout_width="110dp"
             android:layout_height="45dp"
             android:layout_centerVertical="true"
@@ -117,11 +118,12 @@
             android:background="@color/colorGreen_600" />
 
         <RelativeLayout
+            android:id="@+id/coinRL"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
             android:layout_marginEnd="10dp"
-            android:layout_toStartOf="@id/settingsRL">
+            android:layout_toStartOf="@id/logoutRL">
 
             <ImageView
                 android:id="@+id/coinIcon"
@@ -147,7 +149,7 @@
         </RelativeLayout>
 
         <RelativeLayout
-            android:id="@+id/settingsRL"
+            android:id="@+id/logoutRL"
             android:layout_width="40dp"
             android:layout_height="40dp"
             android:layout_alignParentEnd="true"
@@ -176,6 +178,7 @@
         tools:listitem="@layout/child_item_post" />
 
     <RelativeLayout
+        android:id="@+id/createPostRL"
         android:layout_width="60dp"
         android:layout_height="60dp"
         android:layout_alignParentEnd="true"

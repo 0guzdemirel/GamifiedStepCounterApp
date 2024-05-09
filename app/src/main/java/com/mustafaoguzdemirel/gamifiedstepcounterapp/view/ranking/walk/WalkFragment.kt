@@ -1,4 +1,4 @@
-package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.ranking.avgStep
+package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.ranking.walk
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.FragmentMainBinding
 
-class AvgStepRankingFragment : Fragment() {
+class WalkFragment : Fragment() {
     private var binding: FragmentMainBinding? = null
 
     override fun onCreateView(

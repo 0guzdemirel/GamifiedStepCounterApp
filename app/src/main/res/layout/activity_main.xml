@@ -4,4 +4,17 @@
     android:layout_height="match_parent"
     android:background="@color/colorGreen_50">
 
+    <FrameLayout
+        android:id="@+id/mainFragmentContainerFL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/bottomMenuContainerFL"
+      />
+
+    <FrameLayout
+        android:id="@+id/bottomMenuContainerFL"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentBottom="true" />
+
 </RelativeLayout>

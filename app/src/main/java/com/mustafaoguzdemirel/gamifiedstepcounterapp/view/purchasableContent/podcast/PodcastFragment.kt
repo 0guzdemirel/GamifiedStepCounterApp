@@ -1,4 +1,4 @@
-package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.ranking.streak
+package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.purchasableContent.podcast
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.FragmentMainBinding
 
-class StreakRankingFragment : Fragment() {
+class PodcastFragment : Fragment() {
     private var binding: FragmentMainBinding? = null
 
     override fun onCreateView(

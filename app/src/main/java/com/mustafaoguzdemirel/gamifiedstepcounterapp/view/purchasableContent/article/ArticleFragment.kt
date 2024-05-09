@@ -1,4 +1,4 @@
-package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.ranking
+package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.purchasableContent.article
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -6,16 +6,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.FragmentMainBinding
-import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.FragmentRankingBinding
 
-class RankingFragment : Fragment() {
-    private var binding: FragmentRankingBinding? = null
+class ArticleFragment : Fragment() {
+    private var binding: FragmentMainBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        binding = FragmentRankingBinding.inflate(inflater, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
         return binding?.root
     }
 

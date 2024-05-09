@@ -113,7 +113,10 @@
                     android:id="@+id/postPhotoIV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:layout_margin="2dp"
+                    android:layout_marginStart="2dp"
+                    android:layout_marginTop="2dp"
+                    android:layout_marginEnd="2dp"
+                    android:layout_marginBottom="2dp"
                     android:scaleType="centerCrop"
                     app:riv_corner_radius="5dp" />
 
@@ -128,7 +131,10 @@
         android:layout_width="match_parent"
         android:layout_height="45dp"
         android:layout_alignParentBottom="true"
-        android:layout_margin="15dp"
+        android:layout_marginStart="15dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"
+        android:layout_marginBottom="15dp"
         android:background="@drawable/rounded_shape_color_brown_900_rad_5">
 
         <TextView
