@@ -26,7 +26,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="10dp"
-            android:layout_toStartOf="@id/statsRL"
             android:layout_toEndOf="@id/profilePhotoIV"
             android:orientation="vertical">
 
@@ -53,23 +52,6 @@
                 android:textSize="10sp" />
 
         </LinearLayout>
-
-        <RelativeLayout
-            android:id="@+id/statsRL"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/rounded_shape_color_brown_900_rad_8">
-
-            <ImageView
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/stats_icon"
-                app:tint="@color/white" />
-
-        </RelativeLayout>
 
     </RelativeLayout>
 
@@ -123,7 +105,7 @@
                 android:layout_marginHorizontal="10dp"
                 android:layout_toEndOf="@id/walkStatsIcon"
                 android:fontFamily="@font/quicksand_bold"
-                android:text="Walk Stats"
+                android:text="User Stats"
                 android:textColor="@color/white"
                 android:textSize="12sp" />
 

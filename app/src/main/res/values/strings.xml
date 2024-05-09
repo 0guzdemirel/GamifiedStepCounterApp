@@ -17,5 +17,7 @@
     <string name="streak">STREAK</string>
     <string name="avgSteps">AVG STEPS</string>
     <string name="contents">Contents</string>
+    <string name="comment">Comment</string>
+    <string name="send">SEND</string>
 
 </resources>

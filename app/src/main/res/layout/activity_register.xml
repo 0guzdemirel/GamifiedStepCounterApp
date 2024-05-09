@@ -5,19 +5,35 @@
     android:layout_height="match_parent"
     android:background="@color/colorGreen_50">
 
-    <ImageView
-        android:id="@+id/icon"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
+    <RelativeLayout
+        android:id="@+id/profilePhotoContainerRL"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="80dp"
-        android:src="@drawable/step_icon_filled"
-        app:tint="@color/colorBrown_900" />
+        android:background="@drawable/profile_photo_bg">
+
+        <ImageView
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/add_icon"
+            app:tint="@color/colorBrown_900" />
+
+        <com.makeramen.roundedimageview.RoundedImageView
+            android:id="@+id/profilePhotoIV"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="2dp"
+            android:scaleType="centerCrop"
+            app:riv_corner_radius="200dp" />
+
+    </RelativeLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/icon"
+        android:layout_below="@id/profilePhotoContainerRL"
         android:layout_marginHorizontal="15dp"
         android:layout_marginTop="30dp"
         android:orientation="vertical">

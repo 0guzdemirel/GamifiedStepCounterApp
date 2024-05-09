@@ -13,29 +13,29 @@
         android:background="@color/colorGreen_600_Opa10">
 
         <RelativeLayout
-            android:layout_width="120dp"
+            android:layout_width="110dp"
             android:layout_height="45dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="15dp"
-            android:background="@drawable/rounded_shape_color_green_600_rad_10">
+            android:background="@drawable/rounded_shape_color_green_600_rad_5">
 
             <com.makeramen.roundedimageview.RoundedImageView
-                app:riv_border_width="2dp"
-                app:riv_border_color="@color/colorGreen_600"
                 android:id="@+id/profilePhotoIV"
-                android:layout_width="35dp"
+                android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:scaleType="centerCrop"
                 android:src="@drawable/random_person"
-                app:riv_corner_radius_bottom_left="10dp"
-                app:riv_corner_radius_top_left="10dp" />
+                app:riv_border_color="@color/colorGreen_600"
+                app:riv_border_width="2dp"
+                app:riv_corner_radius_bottom_left="5dp"
+                app:riv_corner_radius_top_left="5dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_toEndOf="@id/profilePhotoIV"
                 android:orientation="horizontal"
-                android:weightSum="3">
+                android:weightSum="2">
 
                 <LinearLayout
                     android:layout_width="0dp"
@@ -97,37 +97,6 @@
 
                 </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/coin_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand_semibold"
-                        android:text="132"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand_regular"
-                        android:text="coin"
-                        android:textColor="@color/white"
-                        android:textSize="7sp" />
-
-                </LinearLayout>
-
-
             </LinearLayout>
 
         </RelativeLayout>
@@ -148,6 +117,36 @@
             android:background="@color/colorGreen_600" />
 
         <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="40dp"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:layout_toStartOf="@id/settingsRL">
+
+            <ImageView
+                android:id="@+id/coinIcon"
+                android:layout_width="25dp"
+                android:layout_height="25dp"
+                android:layout_centerVertical="true"
+                android:src="@drawable/coin_icon"
+                app:tint="@color/colorGreen_600" />
+
+            <TextView
+                android:id="@+id/coinTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/coinIcon"
+                android:fontFamily="@font/quicksand_bold"
+                android:text="12"
+                android:textColor="@color/colorGreen_600"
+                android:textSize="14sp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
             android:id="@+id/settingsRL"
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -159,7 +158,7 @@
                 android:layout_width="25dp"
                 android:layout_height="25dp"
                 android:layout_centerInParent="true"
-                android:src="@drawable/settings_icon"
+                android:src="@drawable/logout_icon"
                 app:tint="@color/colorGreen_600" />
 
         </RelativeLayout>
