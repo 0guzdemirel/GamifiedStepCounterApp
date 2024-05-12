@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainRL"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:layout_marginHorizontal="15dp"
@@ -10,10 +11,8 @@
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/contentPhotoIV"
         android:layout_width="match_parent"
-        android:layout_height="160dp"
+        android:layout_height="155dp"
         android:scaleType="centerCrop"
-
-        android:src="@drawable/random_post_img"
         app:riv_border_color="@color/colorBrown_900"
         app:riv_border_width="2dp"
         app:riv_corner_radius_top_left="5dp"
@@ -36,31 +35,33 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="40dp"
+        android:layout_height="45dp"
         android:layout_alignParentBottom="true">
 
         <TextView
             android:id="@+id/nameTV"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_centerVertical="true"
             android:layout_marginHorizontal="15dp"
             android:layout_toStartOf="@id/buyRL"
             android:ellipsize="end"
             android:fontFamily="@font/quicksand_bold"
             android:gravity="center_vertical"
-            android:maxLines="1"
-            android:text="Piano Playlist"
+            android:maxLines="2"
+            android:text="---"
             android:textColor="@color/colorBrown_900"
             android:textSize="14sp" />
 
         <RelativeLayout
             android:id="@+id/buyRL"
             android:layout_width="100dp"
-            android:layout_height="40dp"
+            android:layout_height="45dp"
             android:layout_alignParentEnd="true"
             android:background="@drawable/rounded_shape_color_brown_900_rad_5">
 
             <LinearLayout
+                android:id="@+id/notOwnedLL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
@@ -86,9 +87,16 @@
                     android:textSize="18sp" />
             </LinearLayout>
 
+            <ImageView
+                android:id="@+id/ownedIconIV"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_centerInParent="true"
+                android:rotation="180"
+                android:src="@drawable/back_icon"
+                android:visibility="gone" />
 
         </RelativeLayout>
-
 
     </RelativeLayout>
 

@@ -52,4 +52,6 @@ dependencies {
     implementation("com.makeramen:roundedimageview:2.3.0")
     implementation("org.greenrobot:eventbus:3.3.1")
     implementation("com.sothree.slidinguppanel:library:3.4.0")
+    implementation("com.github.bumptech.glide:glide:4.13.1")
+    annotationProcessor("com.github.bumptech.glide:compiler:4.13.0")
 }
