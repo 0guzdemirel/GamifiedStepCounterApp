@@ -13,6 +13,7 @@
         android:background="@color/colorGreen_600_Opa10">
 
         <RelativeLayout
+            android:id="@+id/infoRL"
             android:layout_width="110dp"
             android:layout_height="45dp"
             android:layout_centerVertical="true"
@@ -21,14 +22,13 @@
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/profilePhotoIV"
-                android:layout_width="40dp"
-                android:layout_height="45dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/random_person"
-                app:riv_border_color="@color/colorGreen_600"
-                app:riv_border_width="2dp"
-                app:riv_corner_radius_bottom_left="5dp"
-                app:riv_corner_radius_top_left="5dp" />
+                android:src="@drawable/avatar_5"
+                app:riv_corner_radius="200dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -183,10 +183,10 @@
                 android:layout_height="80dp"
                 android:layout_gravity="center_horizontal"
                 android:scaleType="centerCrop"
-                android:src="@drawable/random_person"
+                android:src="@drawable/avatar_5"
                 app:riv_border_color="@color/colorBrown_900"
-                app:riv_border_width="2dp"
-                app:riv_corner_radius="8dp" />
+                app:riv_border_width="3dp"
+                app:riv_corner_radius="200dp" />
 
             <TextView
                 android:id="@+id/titleNameTV"
@@ -196,7 +196,7 @@
                 android:layout_marginHorizontal="15dp"
                 android:layout_marginTop="10dp"
                 android:fontFamily="@font/quicksand_semibold"
-                android:text="Brandon Mayhew"
+                android:text="Mustafa Demirel"
                 android:textColor="@color/colorBrown_900"
                 android:textSize="18sp" />
 
@@ -335,38 +335,39 @@
                     <TextView
                         android:id="@+id/rankTV"
                         android:layout_width="0dp"
-                        android:layout_height="match_parent"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2"
-                        android:background="@drawable/rounded_shape_transparent_bordered_color_brown_900_rad_5"
+                        android:background="@drawable/circular_shape_color_brown_900"
                         android:elevation="1dp"
                         android:fontFamily="@font/quicksand_bold"
                         android:gravity="center"
+                        android:paddingTop="2dp"
+                        android:paddingBottom="3dp"
                         android:text="22"
-                        android:textColor="@color/colorBrown_900"
+                        android:textColor="@color/white"
                         android:textSize="16sp" />
 
                     <com.makeramen.roundedimageview.RoundedImageView
                         android:id="@+id/photoIV"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="5dp"
-                        android:layout_weight="3"
+                        android:layout_width="40dp"
+                        android:layout_height="40dp"
+                        android:layout_marginStart="15dp"
                         android:scaleType="centerCrop"
-                        android:src="@drawable/random_person"
+                        android:src="@drawable/avatar_5"
                         app:riv_border_color="@color/colorBrown_900"
                         app:riv_border_width="2dp"
-                        app:riv_corner_radius="5dp" />
+                        app:riv_corner_radius="200dp" />
 
                     <TextView
                         android:id="@+id/nameTV"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="-2dp"
-                        android:layout_weight="8"
+                        android:layout_marginStart="10dp"
+                        android:layout_weight="10"
                         android:elevation="1dp"
                         android:fontFamily="@font/quicksand_bold"
-                        android:gravity="center"
-                        android:text="Brandon Mayhew"
+                        android:gravity="start|center_vertical"
+                        android:text="Mustafa Demirel"
                         android:textColor="@color/colorBrown_900"
                         android:textSize="14sp" />
 
@@ -375,7 +376,7 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_marginStart="-2dp"
-                        android:layout_weight="7"
+                        android:layout_weight="8"
                         android:elevation="1dp"
                         android:fontFamily="@font/quicksand_bold"
                         android:gravity="center"

@@ -13,6 +13,7 @@
         android:background="@color/colorGreen_600_Opa10">
 
         <RelativeLayout
+            android:id="@+id/infoRL"
             android:layout_width="110dp"
             android:layout_height="45dp"
             android:layout_centerVertical="true"
@@ -21,14 +22,13 @@
 
             <com.makeramen.roundedimageview.RoundedImageView
                 android:id="@+id/profilePhotoIV"
-                android:layout_width="40dp"
-                android:layout_height="45dp"
+                android:layout_width="35dp"
+                android:layout_height="35dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="5dp"
                 android:scaleType="centerCrop"
-                android:src="@drawable/random_person"
-                app:riv_border_color="@color/colorGreen_600"
-                app:riv_border_width="2dp"
-                app:riv_corner_radius_bottom_left="5dp"
-                app:riv_corner_radius_top_left="5dp" />
+                android:src="@drawable/avatar_5"
+                app:riv_corner_radius="200dp" />
 
             <LinearLayout
                 android:layout_width="match_parent"

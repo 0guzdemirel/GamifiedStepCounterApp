@@ -4,10 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.hukukkarar.app.common.helper.FragmentHelper
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.ActivityMainBinding
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.eventbus.EventbusModel
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.purchasableContent.PurchasableContentFragment
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.ranking.RankingFragment
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.social.SocialFragment
 import com.nef.app.view.main.BottomMenuCallback
+import org.greenrobot.eventbus.EventBus
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -16,7 +18,19 @@ class MainActivity : AppCompatActivity() {
     private val RANKING_FRAGMENT_TAG = "rankingFragmentTag"
     private val CONTENT_FRAGMENT_TAG = "contentFragmentTag"
 
-    private val socialFragment = SocialFragment()
+    private val socialFragment = SocialFragment(object : MainCallback {
+        override fun onRanking() {
+            EventBus.getDefault()
+                .post(EventbusModel.SelectBottomMenuItemEvent(selectedItemIndex = 1))
+            openRankingFragment()
+        }
+
+        override fun onContent() {
+            EventBus.getDefault()
+                .post(EventbusModel.SelectBottomMenuItemEvent(selectedItemIndex = 2))
+            openContentFragment()
+        }
+    })
     private val rankingFragment = RankingFragment()
     private val purchasableContentFragment = PurchasableContentFragment()
     private val bottomMenuFragment = BottomMenuFragment(

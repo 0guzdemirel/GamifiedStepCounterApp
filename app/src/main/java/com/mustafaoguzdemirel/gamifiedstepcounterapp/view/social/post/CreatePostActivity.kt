@@ -16,7 +16,7 @@ class CreatePostActivity : AppCompatActivity() {
 
     private fun setListeners() {
         binding.backRL.setOnClickListener {
-            //TODO
+            finish()
         }
 
         binding.addPhotoRL.setOnClickListener {

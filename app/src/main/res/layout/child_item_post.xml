@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/mainLL"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_marginHorizontal="15dp"
@@ -17,10 +18,10 @@
             android:id="@+id/profilePhotoIV"
             android:layout_width="40dp"
             android:layout_height="40dp"
-            android:src="@drawable/random_person"
+            android:src="@drawable/avatar_1"
             app:riv_border_color="@color/colorBrown_900"
             app:riv_border_width="2dp"
-            app:riv_corner_radius="8dp" />
+            app:riv_corner_radius="200dp" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -83,7 +84,7 @@
         android:layout_margin="15dp">
 
         <RelativeLayout
-            android:id="@+id/walkStatsRL"
+            android:id="@+id/userStatsRL"
             android:layout_width="wrap_content"
             android:layout_height="40dp"
             android:layout_centerVertical="true"
@@ -125,6 +126,7 @@
                 android:orientation="vertical">
 
                 <ImageView
+                    android:id="@+id/likeIconIV"
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:src="@drawable/like_icon"

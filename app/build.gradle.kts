@@ -51,4 +51,5 @@ dependencies {
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
     implementation("com.makeramen:roundedimageview:2.3.0")
     implementation("org.greenrobot:eventbus:3.3.1")
+    implementation("com.sothree.slidinguppanel:library:3.4.0")
 }

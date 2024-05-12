@@ -12,6 +12,8 @@ import android.widget.ProgressBar
 import android.widget.RelativeLayout
 import android.widget.TextView
 import androidx.core.content.ContextCompat
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.R
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.avatar.AvatarModel
 import java.util.Calendar
 
 object UIHelper {
@@ -90,5 +92,32 @@ object UIHelper {
         )
         datePickerDialog.datePicker.maxDate = Calendar.getInstance().timeInMillis
         datePickerDialog.show()
+    }
+
+    fun getAvatar(index: Int?): Int {
+        val avatarList: MutableList<AvatarModel> = mutableListOf(
+            AvatarModel(id = 0, drawableId = R.drawable.avatar_1, isSelected = false),
+            AvatarModel(id = 1, drawableId = R.drawable.avatar_2, isSelected = false),
+            AvatarModel(id = 2, drawableId = R.drawable.avatar_3, isSelected = false),
+            AvatarModel(id = 3, drawableId = R.drawable.avatar_4, isSelected = false),
+            AvatarModel(id = 4, drawableId = R.drawable.avatar_5, isSelected = false),
+            AvatarModel(id = 5, drawableId = R.drawable.avatar_6, isSelected = false),
+            AvatarModel(id = 6, drawableId = R.drawable.avatar_7, isSelected = false),
+            AvatarModel(id = 7, drawableId = R.drawable.avatar_8, isSelected = false),
+            AvatarModel(id = 8, drawableId = R.drawable.avatar_9, isSelected = false),
+            AvatarModel(id = 9, drawableId = R.drawable.avatar_10, isSelected = false),
+            AvatarModel(id = 10, drawableId = R.drawable.avatar_11, isSelected = false),
+            AvatarModel(id = 11, drawableId = R.drawable.avatar_12, isSelected = false),
+            AvatarModel(id = 12, drawableId = R.drawable.avatar_13, isSelected = false),
+            AvatarModel(id = 13, drawableId = R.drawable.avatar_14, isSelected = false),
+            AvatarModel(id = 14, drawableId = R.drawable.avatar_15, isSelected = false),
+            AvatarModel(id = 15, drawableId = R.drawable.avatar_16, isSelected = false),
+            AvatarModel(id = 16, drawableId = R.drawable.avatar_17, isSelected = false),
+            AvatarModel(id = 17, drawableId = R.drawable.avatar_18, isSelected = false),
+        )
+        if (index != null)
+            return avatarList[index].drawableId
+        else
+            return -1
     }
 }

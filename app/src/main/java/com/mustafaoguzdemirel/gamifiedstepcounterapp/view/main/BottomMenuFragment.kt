@@ -1,5 +1,6 @@
 package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.main
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,7 +9,10 @@ import android.widget.RelativeLayout
 import androidx.fragment.app.Fragment
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.R
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.FragmentBottomMenuBinding
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.eventbus.EventbusModel
 import com.nef.app.view.main.BottomMenuCallback
+import org.greenrobot.eventbus.EventBus
+import org.greenrobot.eventbus.Subscribe
 
 class BottomMenuFragment(private val callback: BottomMenuCallback) : Fragment() {
     private var binding: FragmentBottomMenuBinding? = null
@@ -72,4 +76,23 @@ class BottomMenuFragment(private val callback: BottomMenuCallback) : Fragment() 
         binding = null
     }
 
+    //**************** EventBus ****************
+    @Subscribe
+    fun onBottomMenuItemChanged(itemChangeEvent: EventbusModel.SelectBottomMenuItemEvent) {
+        selectedIndex = itemChangeEvent.selectedItemIndex
+        selectItem()
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        if (!EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().register(this)
+    }
+
+    override fun onDetach() {
+        super.onDetach()
+        if (EventBus.getDefault().isRegistered(this))
+            EventBus.getDefault().unregister(this)
+    }
+    //**************** EventBus ****************
 }
