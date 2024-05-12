@@ -31,7 +31,19 @@ class MainActivity : AppCompatActivity() {
             openContentFragment()
         }
     })
-    private val rankingFragment = RankingFragment()
+    private val rankingFragment = RankingFragment(object : MainCallback {
+        override fun onRanking() {
+            EventBus.getDefault()
+                .post(EventbusModel.SelectBottomMenuItemEvent(selectedItemIndex = 1))
+            openRankingFragment()
+        }
+
+        override fun onContent() {
+            EventBus.getDefault()
+                .post(EventbusModel.SelectBottomMenuItemEvent(selectedItemIndex = 2))
+            openContentFragment()
+        }
+    })
     private val purchasableContentFragment = PurchasableContentFragment()
     private val bottomMenuFragment = BottomMenuFragment(
         callback = object : BottomMenuCallback {

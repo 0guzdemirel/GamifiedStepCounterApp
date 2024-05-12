@@ -6,427 +6,478 @@
     android:layout_height="match_parent"
     android:background="@color/colorGreen_50">
 
-    <RelativeLayout
-        android:id="@+id/headerRL"
-        android:layout_width="match_parent"
-        android:layout_height="65dp"
-        android:background="@color/colorGreen_600_Opa10">
-
-        <RelativeLayout
-            android:id="@+id/infoRL"
-            android:layout_width="110dp"
-            android:layout_height="45dp"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="15dp"
-            android:background="@drawable/rounded_shape_color_green_600_rad_5">
-
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/profilePhotoIV"
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
-                android:scaleType="centerCrop"
-                android:src="@drawable/avatar_5"
-                app:riv_corner_radius="200dp" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_toEndOf="@id/profilePhotoIV"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/fire_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand_semibold"
-                        android:text="48"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand_regular"
-                        android:text="days"
-                        android:textColor="@color/white"
-                        android:textSize="7sp" />
-
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="15dp"
-                        android:layout_height="15dp"
-                        android:src="@drawable/foots_icon" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand_semibold"
-                        android:text="9874"
-                        android:textColor="@color/white"
-                        android:textSize="9sp" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:fontFamily="@font/quicksand_regular"
-                        android:text="steps"
-                        android:textColor="@color/white"
-                        android:textSize="7sp" />
-
-                </LinearLayout>
-
-            </LinearLayout>
-
-        </RelativeLayout>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:fontFamily="@font/quicksand_bold"
-            android:text="@string/ranking"
-            android:textColor="@color/colorGreen_600"
-            android:textSize="18sp" />
-
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/colorGreen_600" />
-
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="40dp"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp"
-            android:layout_toStartOf="@id/settingsRL">
-
-            <ImageView
-                android:id="@+id/coinIcon"
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerVertical="true"
-                android:src="@drawable/coin_icon"
-                app:tint="@color/colorGreen_600" />
-
-            <TextView
-                android:id="@+id/coinTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                android:layout_marginStart="5dp"
-                android:layout_toEndOf="@id/coinIcon"
-                android:fontFamily="@font/quicksand_bold"
-                android:text="12"
-                android:textColor="@color/colorGreen_600"
-                android:textSize="14sp" />
-
-        </RelativeLayout>
-
-        <RelativeLayout
-            android:id="@+id/settingsRL"
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="10dp">
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:layout_centerInParent="true"
-                android:src="@drawable/logout_icon"
-                app:tint="@color/colorGreen_600" />
-
-        </RelativeLayout>
-
-    </RelativeLayout>
-
-    <LinearLayout
+    <com.sothree.slidinguppanel.SlidingUpPanelLayout
+        android:id="@+id/slidingUpPanelLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/headerRL"
-        android:orientation="vertical">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:orientation="vertical">
-
-            <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/profilePhotoMainIV"
-                android:layout_width="80dp"
-                android:layout_height="80dp"
-                android:layout_gravity="center_horizontal"
-                android:scaleType="centerCrop"
-                android:src="@drawable/avatar_5"
-                app:riv_border_color="@color/colorBrown_900"
-                app:riv_border_width="3dp"
-                app:riv_corner_radius="200dp" />
-
-            <TextView
-                android:id="@+id/titleNameTV"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="@font/quicksand_semibold"
-                android:text="Mustafa Demirel"
-                android:textColor="@color/colorBrown_900"
-                android:textSize="18sp" />
-
-        </LinearLayout>
+        android:gravity="bottom"
+        app:umanoDragView="@id/dragView"
+        app:umanoOverlay="true"
+        app:umanoPanelHeight="0dp"
+        app:umanoParallaxOffset="0dp"
+        app:umanoShadowHeight="0dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginHorizontal="15dp"
-            android:layout_marginTop="15dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center_horizontal"
-                    android:fontFamily="@font/quicksand_medium"
-                    android:text="@string/today"
-                    android:textColor="@color/colorBrown_900"
-                    android:textSize="14sp" />
-
-                <com.google.android.material.progressindicator.LinearProgressIndicator
-                    android:id="@+id/todayStepsProgressBar"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="7dp"
-                    android:max="10"
-                    android:progress="3"
-                    app:indicatorColor="@color/colorBrown_900"
-                    app:trackColor="@color/colorBrown_900_Opa50"
-                    app:trackCornerRadius="4dp"
-                    app:trackThickness="12dp" />
-
-                <TextView
-                    android:id="@+id/todayStepCountTV"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="end"
-                    android:fontFamily="@font/quicksand_semibold"
-                    android:text="6748/10000"
-                    android:textColor="@color/colorBrown_900"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
+            android:layout_height="match_parent"
+            android:clickable="true"
+            android:focusable="true">
 
             <RelativeLayout
-                android:layout_width="20dp"
-                android:layout_height="20dp"
-                android:layout_alignParentEnd="true"
-                android:background="@drawable/rounded_shape_color_brown_900_rad_5">
+                android:id="@+id/headerRL"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:background="@color/colorGreen_600_Opa10">
 
-                <ImageView
-                    android:layout_width="12dp"
-                    android:layout_height="12dp"
+                <RelativeLayout
+                    android:id="@+id/infoRL"
+                    android:layout_width="110dp"
+                    android:layout_height="45dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="15dp"
+                    android:background="@drawable/rounded_shape_color_green_600_rad_5">
+
+                    <com.makeramen.roundedimageview.RoundedImageView
+                        android:id="@+id/profilePhotoIV"
+                        android:layout_width="35dp"
+                        android:layout_height="35dp"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="5dp"
+                        android:scaleType="centerCrop"
+                        android:src="@drawable/avatar_5"
+                        app:riv_corner_radius="200dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_toEndOf="@id/profilePhotoIV"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/fire_icon" />
+
+                            <TextView
+                                android:id="@+id/streakCountTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="0"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_regular"
+                                android:text="@string/days"
+                                android:textColor="@color/white"
+                                android:textSize="7sp" />
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:orientation="vertical">
+
+                            <ImageView
+                                android:layout_width="15dp"
+                                android:layout_height="15dp"
+                                android:src="@drawable/foots_icon" />
+
+                            <TextView
+                                android:id="@+id/avgStepCountTV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:text="0"
+                                android:textColor="@color/white"
+                                android:textSize="9sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/quicksand_regular"
+                                android:text="@string/steps"
+                                android:textColor="@color/white"
+                                android:textSize="7sp" />
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </RelativeLayout>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/info_icon"
-                    app:tint="@color/white" />
+                    android:fontFamily="@font/quicksand_bold"
+                    android:text="@string/ranking"
+                    android:textColor="@color/colorGreen_600"
+                    android:textSize="18sp" />
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@color/colorGreen_600" />
+
+                <RelativeLayout
+                    android:id="@+id/coinRL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="40dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@id/logoutRL">
+
+                    <ImageView
+                        android:id="@+id/coinIcon"
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerVertical="true"
+                        android:src="@drawable/coin_icon"
+                        app:tint="@color/colorGreen_600" />
+
+                    <TextView
+                        android:id="@+id/coinTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginStart="5dp"
+                        android:layout_toEndOf="@id/coinIcon"
+                        android:fontFamily="@font/quicksand_bold"
+                        android:text="0"
+                        android:textColor="@color/colorGreen_600"
+                        android:textSize="14sp" />
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:id="@+id/logoutRL"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp">
+
+                    <ImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/logout_icon"
+                        app:tint="@color/colorGreen_600" />
+
+                </RelativeLayout>
 
             </RelativeLayout>
 
-        </RelativeLayout>
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:layout_marginHorizontal="15dp"
-                android:orientation="horizontal"
-                android:weightSum="2">
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginEnd="10dp"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:background="@drawable/rounded_shape_transparent_bordered_color_brown_900_rad_5"
-                        android:fontFamily="@font/quicksand_semibold"
-                        android:gravity="center"
-                        android:paddingVertical="7dp"
-                        android:text="@string/streak"
-                        android:textColor="@color/colorBrown_900"
-                        android:textSize="16sp" />
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_marginStart="10dp"
-                    android:layout_weight="1">
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:fontFamily="@font/quicksand_semibold"
-                        android:gravity="center"
-                        android:paddingVertical="7dp"
-                        android:text="@string/avgSteps"
-                        android:textColor="@color/colorBrown_900"
-                        android:textSize="16sp" />
-
-                </RelativeLayout>
-
-            </LinearLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginTop="10dp"
-                android:background="@drawable/rounded_shape_color_white_bordered_brown_900_rad_5">
+                android:layout_below="@id/headerRL"
+                android:orientation="vertical">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:layout_marginHorizontal="15dp"
-                    android:layout_marginVertical="12dp"
-                    android:orientation="horizontal"
-                    android:weightSum="20">
-
-                    <TextView
-                        android:id="@+id/rankTV"
-                        android:layout_width="0dp"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="2"
-                        android:background="@drawable/circular_shape_color_brown_900"
-                        android:elevation="1dp"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:gravity="center"
-                        android:paddingTop="2dp"
-                        android:paddingBottom="3dp"
-                        android:text="22"
-                        android:textColor="@color/white"
-                        android:textSize="16sp" />
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:orientation="vertical">
 
                     <com.makeramen.roundedimageview.RoundedImageView
-                        android:id="@+id/photoIV"
-                        android:layout_width="40dp"
-                        android:layout_height="40dp"
-                        android:layout_marginStart="15dp"
+                        android:id="@+id/profilePhotoMainIV"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_gravity="center_horizontal"
                         android:scaleType="centerCrop"
                         android:src="@drawable/avatar_5"
                         app:riv_border_color="@color/colorBrown_900"
-                        app:riv_border_width="2dp"
+                        app:riv_border_width="3dp"
                         app:riv_corner_radius="200dp" />
 
                     <TextView
-                        android:id="@+id/nameTV"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="10dp"
-                        android:layout_weight="10"
-                        android:elevation="1dp"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:gravity="start|center_vertical"
+                        android:id="@+id/titleNameTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:fontFamily="@font/quicksand_semibold"
                         android:text="Mustafa Demirel"
                         android:textColor="@color/colorBrown_900"
-                        android:textSize="14sp" />
-
-                    <TextView
-                        android:id="@+id/stepCounterTV"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_marginStart="-2dp"
-                        android:layout_weight="8"
-                        android:elevation="1dp"
-                        android:fontFamily="@font/quicksand_bold"
-                        android:gravity="center"
-                        android:text="12 days"
-                        android:textColor="@color/colorBrown_900"
-                        android:textSize="14sp" />
+                        android:textSize="18sp" />
 
                 </LinearLayout>
 
-            </RelativeLayout>
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_marginHorizontal="15dp"
-                android:layout_marginVertical="10dp"
-                android:background="@drawable/rounded_shape_color_white_bordered_brown_900_rad_5">
-
-                <androidx.recyclerview.widget.RecyclerView
-                    android:id="@+id/streakRvList"
+                <RelativeLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:clipToPadding="false"
-                    android:overScrollMode="never"
-                    android:paddingVertical="10dp"
-                    android:scrollbars="none"
-                    tools:listitem="@layout/child_item_ranking" />
+                    android:layout_marginHorizontal="15dp"
+                    android:layout_marginTop="15dp">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center_horizontal"
+                            android:fontFamily="@font/quicksand_medium"
+                            android:text="@string/today"
+                            android:textColor="@color/colorBrown_900"
+                            android:textSize="14sp" />
+
+                        <com.google.android.material.progressindicator.LinearProgressIndicator
+                            android:id="@+id/todayStepsProgressBar"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="7dp"
+                            android:max="10000"
+                            android:progress="0"
+                            app:indicatorColor="@color/colorBrown_900"
+                            app:trackColor="@color/colorBrown_900_Opa50"
+                            app:trackCornerRadius="4dp"
+                            app:trackThickness="12dp" />
+
+                        <TextView
+                            android:id="@+id/todayStepCountTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="end"
+                            android:fontFamily="@font/quicksand_semibold"
+                            android:text="6748/10000"
+                            android:textColor="@color/colorBrown_900"
+                            android:textSize="12sp" />
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_alignParentEnd="true"
+                        android:background="@drawable/rounded_shape_color_brown_900_rad_5">
+
+                        <ImageView
+                            android:layout_width="12dp"
+                            android:layout_height="12dp"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/info_icon"
+                            app:tint="@color/white" />
+
+                    </RelativeLayout>
+
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="50dp"
+                        android:layout_marginHorizontal="15dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="10dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/streakTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/rounded_shape_transparent_bordered_color_brown_900_rad_5"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:gravity="center"
+                                android:paddingVertical="7dp"
+                                android:text="@string/streak"
+                                android:textColor="@color/colorBrown_900"
+                                android:textSize="16sp" />
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginStart="10dp"
+                            android:layout_weight="1">
+
+                            <TextView
+                                android:id="@+id/avgStepsTV"
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerInParent="true"
+                                android:fontFamily="@font/quicksand_semibold"
+                                android:gravity="center"
+                                android:paddingVertical="7dp"
+                                android:text="@string/avgSteps"
+                                android:textColor="@color/colorBrown_900"
+                                android:textSize="16sp" />
+
+                        </RelativeLayout>
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginTop="10dp"
+                        android:background="@drawable/rounded_shape_color_white_bordered_brown_900_rad_5">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="40dp"
+                            android:layout_marginHorizontal="15dp"
+                            android:layout_marginVertical="12dp"
+                            android:orientation="horizontal"
+                            android:weightSum="20">
+
+                            <TextView
+                                android:id="@+id/rankTV"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="2"
+                                android:background="@drawable/circular_shape_color_brown_900"
+                                android:elevation="1dp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:gravity="center"
+                                android:paddingTop="2dp"
+                                android:paddingBottom="3dp"
+                                android:text="22"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <com.makeramen.roundedimageview.RoundedImageView
+                                android:id="@+id/photoIV"
+                                android:layout_width="40dp"
+                                android:layout_height="40dp"
+                                android:layout_marginStart="15dp"
+                                android:scaleType="centerCrop"
+                                android:src="@drawable/avatar_5"
+                                app:riv_border_color="@color/colorBrown_900"
+                                app:riv_border_width="2dp"
+                                app:riv_corner_radius="200dp" />
+
+                            <TextView
+                                android:id="@+id/nameTV"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="10dp"
+                                android:layout_weight="10"
+                                android:elevation="1dp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:gravity="start|center_vertical"
+                                android:text="Mustafa Demirel"
+                                android:textColor="@color/colorBrown_900"
+                                android:textSize="14sp" />
+
+                            <TextView
+                                android:id="@+id/valueTV"
+                                android:layout_width="0dp"
+                                android:layout_height="match_parent"
+                                android:layout_marginStart="-2dp"
+                                android:layout_weight="8"
+                                android:elevation="1dp"
+                                android:fontFamily="@font/quicksand_bold"
+                                android:gravity="center"
+                                android:text="12 days"
+                                android:textColor="@color/colorBrown_900"
+                                android:textSize="14sp" />
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginHorizontal="15dp"
+                        android:layout_marginVertical="10dp"
+                        android:background="@drawable/rounded_shape_color_white_bordered_brown_900_rad_5">
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/streakRvList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:overScrollMode="never"
+                            android:paddingVertical="10dp"
+                            android:scrollbars="none"
+                            tools:listitem="@layout/child_item_ranking" />
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/avgStepRvList"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:clipToPadding="false"
+                            android:overScrollMode="never"
+                            android:paddingVertical="10dp"
+                            android:scrollbars="none"
+                            android:visibility="gone"
+                            tools:listitem="@layout/child_item_ranking" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/walkRL"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="10dp"
+                android:layout_marginBottom="10dp"
+                android:background="@drawable/rounded_shape_color_brown_400_rad_8"
+                android:visibility="gone">
+
+                <ImageView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_centerInParent="true"
+                    android:src="@drawable/step_icon"
+                    app:tint="@color/colorBrown_900" />
 
             </RelativeLayout>
 
-        </LinearLayout>
+        </RelativeLayout>
 
-    </LinearLayout>
+        <RelativeLayout
+            android:id="@+id/dragView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <RelativeLayout
-        android:layout_width="60dp"
-        android:layout_height="60dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="10dp"
-        android:layout_marginBottom="10dp"
-        android:background="@drawable/rounded_shape_color_brown_400_rad_8">
+            <FrameLayout
+                android:id="@+id/fragmentContainerFL"
+                android:layout_width="match_parent"
+                android:layout_height="500dp" />
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_centerInParent="true"
-            android:src="@drawable/step_icon"
-            app:tint="@color/colorBrown_900" />
+        </RelativeLayout>
 
-    </RelativeLayout>
+    </com.sothree.slidinguppanel.SlidingUpPanelLayout>
 
 </RelativeLayout>

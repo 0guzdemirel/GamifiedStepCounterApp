@@ -19,5 +19,7 @@
     <string name="contents">Contents</string>
     <string name="comment">Comment</string>
     <string name="send">SEND</string>
+    <string name="days">days</string>
+    <string name="steps">steps</string>
 
 </resources>

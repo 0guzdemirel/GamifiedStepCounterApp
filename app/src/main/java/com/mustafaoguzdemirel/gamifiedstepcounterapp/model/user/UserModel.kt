@@ -11,5 +11,5 @@ class UserModel(
     var streakRanking: Int,
     var avgStepRanking: Int,
     var todaysStepCount: Int,
-    var coin: Int,
+    var coin: Int
 )

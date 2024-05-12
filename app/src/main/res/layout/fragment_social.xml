@@ -79,7 +79,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/quicksand_regular"
-                                android:text="days"
+                                android:text="@string/days"
                                 android:textColor="@color/white"
                                 android:textSize="7sp" />
 
@@ -110,7 +110,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/quicksand_regular"
-                                android:text="steps"
+                                android:text="@string/steps"
                                 android:textColor="@color/white"
                                 android:textSize="7sp" />
 
