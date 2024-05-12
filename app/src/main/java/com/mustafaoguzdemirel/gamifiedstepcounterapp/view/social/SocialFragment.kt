@@ -13,6 +13,7 @@ import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.Dataholder
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.NavigationHelper
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.UIHelper
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.post.PostModel
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.user.UserModel
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.adapters.post.PostAdapter
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.adapters.post.PostClickListener
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.main.MainCallback
@@ -43,7 +44,7 @@ class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
         binding = FragmentSocialBinding.inflate(inflater, container, false)
         replaceFragment()
         bindData()
-        initAdapter()
+        initData()
         setListeners()
         return binding?.root
     }
@@ -90,7 +91,7 @@ class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
     }
 
     private lateinit var postAdapter: PostAdapter
-    private val postList: MutableList<PostModel> = ArrayList()
+    private var postList: MutableList<PostModel> = ArrayList()
 
     private fun initAdapter() {
         postAdapter = PostAdapter(postClickListener = object : PostClickListener {
@@ -118,6 +119,30 @@ class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
         binding?.rvList?.setHasFixedSize(true)
         binding?.rvList?.adapter = postAdapter
         binding?.rvList?.itemAnimator = DefaultItemAnimator()
+    }
+
+    private fun initData() {
+        postList = mutableListOf(
+            PostModel(
+                id = "1",
+                description = "Günün güzelliğine inanamıyorum! Hava mükemmel, doğa harika ve ben de 10.000 adımlık hedefime bir adım daha yaklaştım! Siz de bugün doğayla buluşup sağlık dolu bir yürüyüş yapın, ne dersiniz? \uD83C\uDF1E\uD83C\uDF3F",
+                createdDate = "10.05.2024",
+                isLiked = false,
+                likeCount = 0,
+                commentCount = 0,
+                userModel = Dataholder.instance.currentUserModel
+            ),
+            PostModel(
+                id = "2",
+                description = "Kendime sağlıklı bir kahvaltı hazırladım ve güne enerjik başladım! Sağlıklı beslenme, aktif yaşamın olmazsa olmazı! Siz de bugün hangi sağlıklı lezzetleri tercih ettiniz? Paylaşın, birbirimize ilham olalım! \uD83C\uDF4F\uD83E\uDD51",
+                createdDate = "09.05.2024",
+                isLiked = false,
+                likeCount = 0,
+                commentCount = 0,
+                userModel = Dataholder.instance.currentUserModel
+            )
+        )
+        initAdapter()
     }
 
     override fun onDestroyView() {

@@ -146,7 +146,6 @@ class PurchasableContentFragment(private val mainCallback: MainCallback) : Fragm
                 url = "https://www.medicalpark.com.tr/_uploads/_images/_healthGuide/3UNc5356.jpg",
                 isOwned = false
             ),
-
             )
         initAdapter()
     }

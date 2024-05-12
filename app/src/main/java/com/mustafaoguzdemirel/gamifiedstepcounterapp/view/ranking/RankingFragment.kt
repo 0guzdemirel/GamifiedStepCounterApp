@@ -274,7 +274,6 @@ class RankingFragment(private val mainCallback: MainCallback) : Fragment() {
             )
         )
 
-
         avgStepsRankList = mutableListOf(
             UserModel(
                 id = "2",
