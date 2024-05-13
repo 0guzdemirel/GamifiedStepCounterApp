@@ -3,5 +3,5 @@ package com.mustafaoguzdemirel.gamifiedstepcounterapp.view.adapters.purchasableC
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.purchasableContent.PurchasableContentModel
 
 interface PurchasableContentClickListener {
-    fun onClickContent(purchasableContentModel: PurchasableContentModel)
+    fun onClickContent(purchasableContentModel: PurchasableContentModel?)
 }

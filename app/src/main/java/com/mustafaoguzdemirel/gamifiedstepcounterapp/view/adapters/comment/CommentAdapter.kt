@@ -16,7 +16,7 @@ class CommentAdapter(
     private val commentClickListener: CommentClickListener,
 ) : RecyclerView.Adapter<CommentAdapter.ViewHolder>() {
 
-    private val commentList: MutableList<CommentModel> = ArrayList()
+    private val commentList: MutableList<CommentModel?> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -27,18 +27,18 @@ class CommentAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val comment = commentList[position]
 
-        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(comment.userModel?.avatarId?.toInt()))
+        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(comment?.userModel?.avatarId?.toInt()))
 
-        holder.nameTV.text = "" + comment.userModel?.name
-        holder.dateTV.text = "" + comment.createdDate
-        holder.contentTV.text = "" + comment.description
+        holder.nameTV.text = "" + comment?.userModel?.name
+        holder.dateTV.text = "" + comment?.createdDate
+        holder.contentTV.text = "" + comment?.description
 
         holder.userStatsRL.setOnClickListener {
             commentClickListener.onClickShowStats(comment)
         }
     }
 
-    fun setList(list: List<CommentModel>?) {
+    fun setList(list: List<CommentModel?>?) {
         commentList.clear()
         commentList.addAll(list!!)
         notifyDataSetChanged()

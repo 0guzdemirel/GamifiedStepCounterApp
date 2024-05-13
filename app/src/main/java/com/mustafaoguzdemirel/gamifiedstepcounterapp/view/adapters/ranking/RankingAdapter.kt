@@ -14,7 +14,7 @@ class RankingAdapter(
     private val isForStreak: Boolean
 ) : RecyclerView.Adapter<RankingAdapter.ViewHolder>() {
 
-    private val userList: MutableList<UserModel> = ArrayList()
+    private val userList: MutableList<UserModel?> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -25,15 +25,15 @@ class RankingAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = userList[position]
 
-        holder.photoIV.setImageResource(UIHelper.getAvatar(user.avatarId?.toInt()))
-        holder.nameTV.text = "" + user.name
+        holder.photoIV.setImageResource(UIHelper.getAvatar(user?.avatarId?.toInt()))
+        holder.nameTV.text = "" + user?.name
 
         if (isForStreak) {
-            holder.rankTV.text = "" + user.streakRanking
-            holder.valueTV.text = "" + user.streakCount + " days"
+            holder.rankTV.text = "" + user?.streakRanking
+            holder.valueTV.text = "" + user?.streakCount + " days"
         } else {
-            holder.rankTV.text = "" + user.avgStepRanking
-            holder.valueTV.text = "" + user.avgStepCount + " steps"
+            holder.rankTV.text = "" + user?.avgStepRanking
+            holder.valueTV.text = "" + user?.avgStepCount + " steps"
         }
 
         if (position == userList.size - 1) {
@@ -43,7 +43,7 @@ class RankingAdapter(
         }
     }
 
-    fun setList(list: List<UserModel>?) {
+    fun setList(list: List<UserModel?>?) {
         userList.clear()
         userList.addAll(list!!)
         notifyDataSetChanged()

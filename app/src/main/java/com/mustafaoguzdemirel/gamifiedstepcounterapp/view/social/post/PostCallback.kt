@@ -4,6 +4,6 @@ import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.comment.CommentModel
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.post.PostModel
 
 interface PostCallback {
-    fun onPostCreated(postModel: PostModel) {}
-    fun onCommentAdded(commentModel: CommentModel) {}
+    fun onPostCreated() {}
+    fun onCommentAdded() {}
 }

@@ -13,6 +13,9 @@ import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.Dataholder
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.NavigationHelper
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.UIHelper
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.post.PostModel
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.post.PostResponse
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.presenter.user.UserPresenter
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.presenter.user.UserView
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.adapters.post.PostAdapter
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.adapters.post.PostClickListener
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.main.MainCallback
@@ -24,12 +27,12 @@ import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
 class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
     private var binding: FragmentSocialBinding? = null
+    private lateinit var userPresenter: UserPresenter
 
     private val createPostFragment = CreatePostFragment(
         postCallback = object : PostCallback {
-            override fun onPostCreated(postModel: PostModel) {
-                postList.add(postModel)
-                initAdapter()
+            override fun onPostCreated() {
+                loadPosts()
                 binding!!.slidingUpPanelLayout.panelState =
                     SlidingUpPanelLayout.PanelState.COLLAPSED
             }
@@ -41,10 +44,16 @@ class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentSocialBinding.inflate(inflater, container, false)
+        initPresenters()
         replaceFragment()
         bindData()
         setListeners()
+        loadPosts()
         return binding?.root
+    }
+
+    private fun initPresenters() {
+        userPresenter = UserPresenter()
     }
 
     private fun bindData() {
@@ -89,11 +98,11 @@ class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
     }
 
     private lateinit var postAdapter: PostAdapter
-    private var postList: MutableList<PostModel> = ArrayList()
+    private var postList: MutableList<PostModel?>? = ArrayList()
 
     private fun initAdapter() {
         postAdapter = PostAdapter(postClickListener = object : PostClickListener {
-            override fun onClickPost(postModel: PostModel) {
+            override fun onClickPost(postModel: PostModel?) {
                 Dataholder.instance.selectedPost = postModel
                 NavigationHelper.instance?.navigateToActivity(
                     context = context,
@@ -101,12 +110,11 @@ class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
                 )
             }
 
-            override fun onClickPostLike(postModel: PostModel, position: Int) {
-                postModel.isLiked = !postModel.isLiked!!
-                postAdapter.notifyItemChanged(position)
+            override fun onClickPostLike(postModel: PostModel?, position: Int) {
+                likePost(postModel, position, isLike = !postModel?.isLiked!!)
             }
 
-            override fun onClickShowStats(postModel: PostModel) {
+            override fun onClickShowStats(postModel: PostModel?) {
                 //TODO
             }
         })
@@ -117,6 +125,41 @@ class SocialFragment(private val mainCallback: MainCallback) : Fragment() {
         binding?.rvList?.setHasFixedSize(true)
         binding?.rvList?.adapter = postAdapter
         binding?.rvList?.itemAnimator = DefaultItemAnimator()
+    }
+
+    private fun loadPosts() {
+        userPresenter.getPosts(
+            userView = object : UserView {
+                override fun onGetPostsSuccessful(postResponse: PostResponse?) {
+                    postList = postResponse?.postData?.postList
+                    initAdapter()
+                    binding?.progressBar?.visibility = View.GONE
+                }
+
+                override fun onError() {
+
+                }
+            }
+        )
+    }
+
+    private fun likePost(postModel: PostModel?, position: Int, isLike: Boolean) {
+        userPresenter.likePost(
+            postId = postModel?.id,
+            isLiked = isLike,
+            userView = object : UserView {
+                override fun onGetPostsSuccessful(postResponse: PostResponse?) {
+                    postModel?.isLiked = isLike
+                    postList!![position]?.isLiked = isLike
+                    postAdapter.getList()[position]?.isLiked = isLike
+                    postAdapter.notifyItemChanged(position)
+                }
+
+                override fun onError() {
+
+                }
+            }
+        )
     }
 
     override fun onDestroyView() {

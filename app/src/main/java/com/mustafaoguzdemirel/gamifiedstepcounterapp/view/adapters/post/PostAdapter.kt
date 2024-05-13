@@ -17,7 +17,7 @@ class PostAdapter(
     private val postClickListener: PostClickListener,
 ) : RecyclerView.Adapter<PostAdapter.ViewHolder>() {
 
-    private val postList: MutableList<PostModel> = ArrayList()
+    private val postList: MutableList<PostModel?> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -28,16 +28,20 @@ class PostAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val post = postList[position]
 
-        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(post.userModel?.avatarId?.toInt()))
+        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(post?.userModel?.avatarId?.toInt()))
 
-        holder.nameTV.text = "" + post.userModel?.name
-        holder.dateTV.text = "" + post.createdDate
-        holder.contentTV.text = "" + post.description
-        holder.likeCountTV.text = "" + post.likeCount
-        holder.commentCountTV.text = "" + post.commentCount
+        holder.nameTV.text = "" + post?.userModel?.name
+        holder.dateTV.text = "" + post?.createdDate
+        holder.contentTV.text = "" + post?.description
+        if (post?.likeCount!! > 0) {
+            holder.likeCountTV.text = "" + post?.likeCount
+        } else {
+            holder.likeCountTV.text = "0"
+        }
+        holder.commentCountTV.text = "" + post?.commentCount
 
         holder.likeIconIV.setImageResource(
-            if (post.isLiked == true)
+            if (post?.isLiked == true)
                 R.drawable.like_filled_icon
             else
                 R.drawable.like_icon
@@ -56,10 +60,14 @@ class PostAdapter(
         }
     }
 
-    fun setList(list: List<PostModel>?) {
+    fun setList(list: List<PostModel?>?) {
         postList.clear()
         postList.addAll(list!!)
         notifyDataSetChanged()
+    }
+
+    fun getList(): List<PostModel?> {
+        return postList
     }
 
     override fun getItemCount(): Int {

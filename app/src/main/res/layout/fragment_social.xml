@@ -185,31 +185,46 @@
 
             </RelativeLayout>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/rvList"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_below="@id/headerRL"
-                android:overScrollMode="never"
-                android:scrollbars="none"
-                tools:listitem="@layout/child_item_post" />
+                android:layout_below="@id/headerRL">
 
-            <RelativeLayout
-                android:id="@+id/createPostRL"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
-                android:layout_alignParentEnd="true"
-                android:layout_alignParentBottom="true"
-                android:layout_marginEnd="10dp"
-                android:layout_marginBottom="10dp"
-                android:background="@drawable/rounded_shape_color_brown_400_rad_8">
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rvList"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:clipToPadding="false"
+                    android:overScrollMode="never"
+                    android:paddingBottom="80dp"
+                    android:scrollbars="none"
+                    tools:listitem="@layout/child_item_post" />
 
-                <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                <RelativeLayout
+                    android:id="@+id/createPostRL"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_alignParentEnd="true"
+                    android:layout_alignParentBottom="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/rounded_shape_color_brown_400_rad_8">
+
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_centerInParent="true"
+                        android:src="@drawable/add_icon"
+                        app:tint="@color/colorBrown_900" />
+
+                </RelativeLayout>
+
+                <ProgressBar
+                    android:id="@+id/progressBar"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
                     android:layout_centerInParent="true"
-                    android:src="@drawable/add_icon"
-                    app:tint="@color/colorBrown_900" />
+                    android:indeterminateTint="@color/colorBrown_900" />
 
             </RelativeLayout>
 

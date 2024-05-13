@@ -60,8 +60,8 @@ interface ApiInterface {
     @FormUrlEncoded
     @POST("Content/AddComment")
     fun addComment(
-        @Field("commentContent") commentContent: String?,
         @Field("postId") postId: String?,
+        @Field("commentContent") commentContent: String?,
     ): Call<BaseResponse?>?
 
     @GET("Content/GetStreakRanking")

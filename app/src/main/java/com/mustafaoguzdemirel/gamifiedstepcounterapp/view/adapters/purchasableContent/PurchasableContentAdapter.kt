@@ -17,7 +17,7 @@ class PurchasableContentAdapter(
     private val purchasableContentClickListener: PurchasableContentClickListener,
 ) : RecyclerView.Adapter<PurchasableContentAdapter.ViewHolder>() {
 
-    private val purchasableList: MutableList<PurchasableContentModel> = ArrayList()
+    private val purchasableList: MutableList<PurchasableContentModel?> = ArrayList()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -28,15 +28,15 @@ class PurchasableContentAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val purchasable = purchasableList[position]
 
-        if (purchasable.typeId == "1") {
+        if (purchasable?.typeId == "1") {
             holder.typeIconIV.setImageResource(R.drawable.spoti_icon)
-        } else if (purchasable.typeId == "2") {
+        } else if (purchasable?.typeId == "2") {
             holder.typeIconIV.setImageResource(R.drawable.podcast_icon)
         } else {
             holder.typeIconIV.setImageResource(R.drawable.article_icon)
         }
 
-        if (purchasable.isOwned == true) {
+        if (purchasable?.isOwned == true) {
             holder.ownedIconIV.visibility = View.VISIBLE
             holder.notOwnedLL.visibility = View.GONE
         } else {
@@ -44,17 +44,17 @@ class PurchasableContentAdapter(
             holder.notOwnedLL.visibility = View.VISIBLE
         }
 
-        holder.nameTV.text = "" + purchasable.title
-        holder.priceTV.text = "" + purchasable.price
+        holder.nameTV.text = "" + purchasable?.title
+        holder.priceTV.text = "" + purchasable?.price
 
-        Glide.with(holder.contentPhotoIV).load(purchasable.url).into(holder.contentPhotoIV)
+        Glide.with(holder.contentPhotoIV).load(purchasable?.url).into(holder.contentPhotoIV)
 
         holder.mainRL.setOnClickListener {
             purchasableContentClickListener.onClickContent(purchasable)
         }
     }
 
-    fun setList(list: List<PurchasableContentModel>?) {
+    fun setList(list: List<PurchasableContentModel?>?) {
         purchasableList.clear()
         purchasableList.addAll(list!!)
         notifyDataSetChanged()

@@ -10,18 +10,22 @@ import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.ActivityPostDet
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.Dataholder
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.UIHelper
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.comment.CommentModel
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.comment.CommentResponse
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.model.post.PostResponse
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.presenter.user.UserPresenter
+import com.mustafaoguzdemirel.gamifiedstepcounterapp.presenter.user.UserView
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.adapters.comment.CommentAdapter
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.view.adapters.comment.CommentClickListener
 import com.sothree.slidinguppanel.SlidingUpPanelLayout
 
 class PostDetailActivity : AppCompatActivity() {
     private lateinit var binding: ActivityPostDetailBinding
+    private lateinit var userPresenter: UserPresenter
 
     private val addCommentFragment = AddCommentFragment(
         postCallback = object : PostCallback {
-            override fun onCommentAdded(commentModel: CommentModel) {
-                commentList.add(commentModel)
-                initAdapter()
+            override fun onCommentAdded() {
+                loadComments()
                 binding.slidingUpPanelLayout.panelState =
                     SlidingUpPanelLayout.PanelState.COLLAPSED
             }
@@ -32,10 +36,16 @@ class PostDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityPostDetailBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        initPresenters()
         replaceFragment()
         bindData()
         initAdapter()
         setListeners()
+        loadComments()
+    }
+
+    private fun initPresenters() {
+        userPresenter = UserPresenter()
     }
 
     private fun bindData() {
@@ -64,13 +74,7 @@ class PostDetailActivity : AppCompatActivity() {
         }
 
         binding.likeLL.setOnClickListener {
-            Dataholder.instance.selectedPost?.isLiked = !Dataholder.instance.selectedPost?.isLiked!!
-            binding.likeIconIV.setImageResource(
-                if (Dataholder.instance.selectedPost?.isLiked == true)
-                    R.drawable.like_filled_icon
-                else
-                    R.drawable.like_icon
-            )
+            likePost(!Dataholder.instance.selectedPost?.isLiked!!)
         }
 
         binding.addCommentRL.setOnClickListener {
@@ -91,11 +95,11 @@ class PostDetailActivity : AppCompatActivity() {
     }
 
     private lateinit var commentAdapter: CommentAdapter
-    private val commentList: MutableList<CommentModel> = ArrayList()
+    private var commentList: MutableList<CommentModel?>? = ArrayList()
 
     private fun initAdapter() {
         commentAdapter = CommentAdapter(commentClickListener = object : CommentClickListener {
-            override fun onClickShowStats(commentModel: CommentModel) {
+            override fun onClickShowStats(commentModel: CommentModel?) {
                 //TODO
             }
         })
@@ -106,5 +110,37 @@ class PostDetailActivity : AppCompatActivity() {
         binding.rvList.setHasFixedSize(true)
         binding.rvList.adapter = commentAdapter
         binding.rvList.itemAnimator = DefaultItemAnimator()
+    }
+
+    private fun loadComments() {
+        userPresenter.getComments(
+            postId = Dataholder.instance.selectedPost?.id,
+            userView = object : UserView {
+                override fun onGetCommentsSuccessful(commentResponse: CommentResponse?) {
+                    commentList = commentResponse?.commentData?.commentList
+                    initAdapter()
+                }
+
+                override fun onError() {
+
+                }
+            }
+        )
+    }
+
+    private fun likePost(isLike: Boolean) {
+        userPresenter.likePost(
+            postId = Dataholder.instance.selectedPost?.id,
+            isLiked = isLike,
+            userView = object : UserView {
+                override fun onGetPostsSuccessful(postResponse: PostResponse?) {
+                    bindData()
+                }
+
+                override fun onError() {
+
+                }
+            }
+        )
     }
 }
