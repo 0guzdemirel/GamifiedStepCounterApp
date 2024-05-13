@@ -79,4 +79,8 @@ class AvatarFragment(private val avatarCallback: AvatarCallback) : Fragment() {
         binding = null
     }
 
+    override fun onResume() {
+        super.onResume()
+        avatarCallback.onRvListCreated(binding!!.rvList)
+    }
 }

@@ -4,8 +4,10 @@ import android.graphics.Rect
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MotionEvent
+import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.EditText
+import androidx.recyclerview.widget.RecyclerView
 import com.hukukkarar.app.common.helper.FragmentHelper
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.databinding.ActivityRegisterBinding
 import com.mustafaoguzdemirel.gamifiedstepcounterapp.helper.Dataholder
@@ -30,9 +32,14 @@ class RegisterActivity : AppCompatActivity() {
     private val avatarFragment = AvatarFragment(
         avatarCallback = object : AvatarCallback {
             override fun onAvatarSelected(avatarModel: AvatarModel) {
+                binding.plusIcon.visibility = View.GONE
                 selectedAvatarId = avatarModel.id
                 binding.profilePhotoIV.setImageResource(avatarModel.drawableId)
                 binding.slidingUpPanelLayout.panelState = SlidingUpPanelLayout.PanelState.COLLAPSED
+            }
+
+            override fun onRvListCreated(recyclerView: RecyclerView) {
+                binding.slidingUpPanelLayout.setScrollableView(recyclerView)
             }
         }
     )
@@ -65,11 +72,7 @@ class RegisterActivity : AppCompatActivity() {
 
         binding.registerRL.setOnClickListener {
             finish()
-            NavigationHelper.instance?.navigateToActivity(
-                context = this@RegisterActivity,
-                navigateActivity = MainActivity::class.java
-            )
-            //TODO api call
+            register()
         }
 
         binding.slidingUpPanelLayout.setFadeOnClickListener {
@@ -77,7 +80,7 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun login() {
+    private fun register() {
         UIHelper.setButtonLoading(
             buttonL = binding.registerRL,
             buttonText = binding.registerBtnText,
