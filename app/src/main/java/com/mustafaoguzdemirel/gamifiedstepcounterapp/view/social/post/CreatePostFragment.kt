@@ -25,17 +25,6 @@ class CreatePostFragment(
 
     private fun setListeners() {
         binding!!.shareRL.setOnClickListener {
-            postCallback.onPostCreated(
-                PostModel(
-                    id = "1",
-                    description = binding!!.postContentET.text.toString(),
-                    createdDate = "12.05.2024",
-                    isLiked = false,
-                    likeCount = 0,
-                    commentCount = 0,
-                    Dataholder.instance.currentUserModel
-                )
-            )
             binding!!.postContentET.setText("")
             //TODO: addPost api
         }

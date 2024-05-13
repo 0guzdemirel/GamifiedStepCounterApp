@@ -23,15 +23,6 @@ class AddCommentFragment(private val postCallback: PostCallback) : Fragment() {
 
     private fun setListeners() {
         binding!!.sendRL.setOnClickListener {
-            postCallback.onCommentAdded(
-                CommentModel(
-                    id = "1",
-                    description = binding!!.commentET.text.toString(),
-                    createdDate = "12.05.2024",
-                    userModel = Dataholder.instance.currentUserModel,
-                    parentPostId = Dataholder.instance.selectedPost!!.id
-                )
-            )
             binding!!.commentET.setText("")
             //TODO: addPost api
         }

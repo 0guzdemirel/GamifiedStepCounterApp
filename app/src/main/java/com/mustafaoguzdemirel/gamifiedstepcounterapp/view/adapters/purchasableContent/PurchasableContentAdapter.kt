@@ -36,7 +36,7 @@ class PurchasableContentAdapter(
             holder.typeIconIV.setImageResource(R.drawable.article_icon)
         }
 
-        if (purchasable.isOwned) {
+        if (purchasable.isOwned == true) {
             holder.ownedIconIV.visibility = View.VISIBLE
             holder.notOwnedLL.visibility = View.GONE
         } else {

@@ -25,7 +25,7 @@ class RankingAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val user = userList[position]
 
-        holder.photoIV.setImageResource(UIHelper.getAvatar(user.avatarId))
+        holder.photoIV.setImageResource(UIHelper.getAvatar(user.avatarId?.toInt()))
         holder.nameTV.text = "" + user.name
 
         if (isForStreak) {

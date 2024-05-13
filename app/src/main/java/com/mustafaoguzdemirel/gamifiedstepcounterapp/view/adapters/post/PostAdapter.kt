@@ -28,7 +28,7 @@ class PostAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val post = postList[position]
 
-        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(post.userModel?.avatarId))
+        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(post.userModel?.avatarId?.toInt()))
 
         holder.nameTV.text = "" + post.userModel?.name
         holder.dateTV.text = "" + post.createdDate
@@ -37,7 +37,7 @@ class PostAdapter(
         holder.commentCountTV.text = "" + post.commentCount
 
         holder.likeIconIV.setImageResource(
-            if (post.isLiked)
+            if (post.isLiked == true)
                 R.drawable.like_filled_icon
             else
                 R.drawable.like_icon

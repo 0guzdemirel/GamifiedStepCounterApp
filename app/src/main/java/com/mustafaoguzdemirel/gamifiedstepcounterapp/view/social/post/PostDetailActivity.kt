@@ -39,7 +39,7 @@ class PostDetailActivity : AppCompatActivity() {
     }
 
     private fun bindData() {
-        binding.profilePhotoIV.setImageResource(UIHelper.getAvatar(Dataholder.instance.selectedPost?.userModel?.avatarId))
+        binding.profilePhotoIV.setImageResource(UIHelper.getAvatar(Dataholder.instance.selectedPost?.userModel?.avatarId?.toInt()))
         binding.nameTV.text = "" + Dataholder.instance.selectedPost?.userModel?.name
         binding.dateTV.text = "" + Dataholder.instance.selectedPost?.createdDate
         binding.contentTV.text = "" + Dataholder.instance.selectedPost?.description

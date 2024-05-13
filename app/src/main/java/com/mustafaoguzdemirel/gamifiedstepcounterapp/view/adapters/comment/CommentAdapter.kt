@@ -27,7 +27,7 @@ class CommentAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val comment = commentList[position]
 
-        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(comment.userModel?.avatarId))
+        holder.profilePhotoIV.setImageResource(UIHelper.getAvatar(comment.userModel?.avatarId?.toInt()))
 
         holder.nameTV.text = "" + comment.userModel?.name
         holder.dateTV.text = "" + comment.createdDate
